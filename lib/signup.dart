@@ -11,6 +11,7 @@ class _SignUpPageState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: CustomPaint(
         painter: BackgroundSignUp(),
         child: Stack(
