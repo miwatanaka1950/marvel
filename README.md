@@ -1,1 +1,1 @@
-<img width="562" alt="Снимок экрана 2024-03-05 в 16 56 55" src="https://github.com/MariaTebaaa/marvel/assets/146437103/2a9d1e73-831a-44be-bb1b-09be218c1eeb">
+![image](https://github.com/miwatanaka1950/marvel/assets/146437142/4b69fab8-874b-40c7-a97c-07c2988d6de3) 
