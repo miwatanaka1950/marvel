@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klemina_tebeleva/components/item_list.dart';
 import 'signup.dart';
 
 final List<String> nameCar = <String>[
@@ -48,18 +49,18 @@ class _LoginPageState extends State {
         child: Stack(
           children: <Widget>[
             Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 33),
-                 child:  Column(
-                 children: <Widget>[
-                 _getHeader(),
-                   _getInputs(),
-                   _getSignIn(),
-                   _getBottomRow(context),
-        ],
-      ),
-    )
-        ],
-      ),
+              padding: const EdgeInsets.symmetric(horizontal: 33),
+              child:  Column(
+                children: <Widget>[
+                  _getHeader(),
+                  _getInputs(),
+                  _getSignIn(context),
+                  _getBottomRow(context),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -73,10 +74,10 @@ _getHeader(){
       child: Text(
         'Добро пожаловать!',
         style: TextStyle(color: Colors.white,
-      fontStyle: FontStyle.italic,
-      fontSize: 37
+            fontStyle: FontStyle.italic,
+            fontSize: 37
         ),
-    ),
+      ),
     ),
   );
 }
@@ -104,17 +105,22 @@ _getInputs(){
   );
 }
 
-_getSignIn(){
+_getSignIn(context){
   return Expanded(
     flex: 1,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget> [
-        Text('Вход', style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),),
-        CircleAvatar(
+        GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => MyListItem()));
+  }, //фигура как переход
+        child: CircleAvatar(
           backgroundColor: Colors.red.shade800,
           radius: 30,
           child: Icon(Icons.arrow_forward_ios, color: Colors.white,),
+        )
         )
       ],
     ),
@@ -159,14 +165,16 @@ class BackgroundSignIn extends CustomPainter{
     mainBackground.addRect(Rect.fromLTRB(0,0, sw, sh));
     paint.color = Colors.grey.shade100;
     canvas.drawPath(mainBackground, paint);
+
     //фигура синяя
     Path blueWawe = Path();
-      blueWawe.lineTo(sw,0);
-      blueWawe.lineTo(sw,sh*0.5);
-      blueWawe.quadraticBezierTo(sw*0.5,sh*0.45,sw* 0.2, 0);
-      blueWawe.close();
-      paint.color = Colors.blue.shade800;
-      canvas.drawPath(blueWawe, paint);
+    blueWawe.lineTo(sw,0);
+    blueWawe.lineTo(sw,sh*0.5);
+    blueWawe.quadraticBezierTo(sw*0.5,sh*0.45,sw* 0.2, 0);
+    blueWawe.close();
+    paint.color = Colors.blue.shade800;
+    canvas.drawPath(blueWawe, paint);
+
     //фигура красная
     Path RedWawe = Path();
     RedWawe.lineTo(sw,0);
