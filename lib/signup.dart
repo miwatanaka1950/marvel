@@ -19,21 +19,20 @@ class _SignUpPageState extends State {
             GestureDetector(
               onTap: () { //сделать переход (от)
                 Navigator.pop(context);
-      },                                //(до)
+              },                                //(до)
               child: Container(
                 padding: const EdgeInsets.only(left: 25.0, top: 35.0), //отступы слева и пикселей
                 child: Icon(
-                  Icons.arrow_back_ios,color: Colors.white),
-                ),
+                    Icons.arrow_back_ios,color: Colors.white),
               ),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 35),
               child: Column(
                 children: <Widget>[
                   _getHeader(),
                   _getInputs(),
-                  _getSignUp(),
-                  _getBottomRow(context),
+                  _getSignUp(context),
                 ],
               ),
             )
@@ -101,48 +100,23 @@ _getInputs(){
   );
 }
 
-_getSignUp(){
+_getSignUp(context){
   return Expanded(
     flex: 2,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Text(
-          'Зарегистрироваться', style: TextStyle(
-            fontSize: 23,
-            fontWeight: FontWeight.w500,
-            color: Colors.white),
-        ),
-        CircleAvatar( //Создание кнопки
+        GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+  },
+    child: CircleAvatar( //Создание кнопки
           backgroundColor: Colors.red.shade800,
           radius: 40,
           child: Icon(
             Icons.arrow_forward_ios,
             color: Colors.white,
-          ),
-        )
-      ],
-    ),
-  );
-}
-
-_getBottomRow(context) {
-  return Expanded(
-    flex: 2,
-    child: Row(
-      children: <Widget>[
-        GestureDetector(
-        onTap: () {
-  Navigator.pop(context);
-  },
-          child: Text(
-            'Вход',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-              decoration: TextDecoration.underline,
-            ),
+          )
           ),
         )
       ],
